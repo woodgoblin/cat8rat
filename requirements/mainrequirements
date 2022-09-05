@@ -1,0 +1,11 @@
+Platform (0.0):
+
+1. Hello world service is created +
+2. Pipeline builds HWS, creates images and pushes them to the repo. /
+3. Kubernetes deployment could be created manually.
+4. Some way to run IT (either docker-compose or k8s).
+5. Cat domain is created, with postgres database.
+6. Logging
+7. Exception handling
+
+MVP0 (0.1)
