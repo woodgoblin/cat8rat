@@ -46,9 +46,9 @@ jobs:
           ecr: auto # optional, default is auto
           # Log out from the Docker registry at the end of a job
           logout: true # optional, default is true
-          run: |  # build and tag this shit
-            docker build -f ./src/main/docker/Dockerfile.native-micro . -t oleksiimyronchenko/cat8rat:$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
-            docker push oleksiimyronchenko/cat8rat:$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+        run: |  # build and tag this shit
+          docker build -f ./src/main/docker/Dockerfile.native-micro . -t oleksiimyronchenko/cat8rat:$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+          docker push oleksiimyronchenko/cat8rat:$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
             
     
 
