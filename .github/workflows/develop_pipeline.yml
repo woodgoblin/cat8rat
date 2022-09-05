@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Native Clean package
-        run:|
+        run: |
           chmod +x mvnw
           ./mvnw clean package -Pnative
         
