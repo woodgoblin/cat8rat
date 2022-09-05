@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "develop" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,14 +25,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Prepare the release
+        run: ./mvnw --batch-mode release:prepare
+
       # Runs a single command using the runners shell
       - name: Native Clean package
         run: |
           chmod +x mvnw
           ./mvnw clean package -Pnative
-
-      - name: Prepare the release
-        run: ./mvnw --batch-mode release:prepare
         
       - name: Docker Login
         # You may pin to the exact commit or the version.
