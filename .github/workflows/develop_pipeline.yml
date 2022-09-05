@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Native Clean package
-        run: /.mvnw clean package -Pnative
+        run: ./mvnw clean package -Pnative
         
       - name: Docker Login
         # You may pin to the exact commit or the version.
