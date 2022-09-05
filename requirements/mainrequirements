@@ -1,11 +1,12 @@
 Platform (0.0):
 
 1. Hello world service is created +
-2. Pipeline builds HWS, creates images and pushes them to the repo. /
-3. Kubernetes deployment could be created manually.
-4. Some way to run IT (either docker-compose or k8s).
-5. Cat domain is created, with postgres database.
-6. Logging
-7. Exception handling
+2. Pipeline builds HWS, creates images and pushes them to the repo. +
+3. Maven release is performed each time the code is pushed to develop for the fourth version number and in main for the 3rd. /
+4. Kubernetes deployment could be created manually.
+5. Some way to run IT (either docker-compose or k8s).
+6. Cat domain is created, with postgres database.
+7. Logging
+8. Exception handling
 
 MVP0 (0.1)
