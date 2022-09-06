@@ -18,7 +18,7 @@ jobs:
     env:
       EMAIL_GITHUB: ${{ secrets.EMAIL_GITHUB }}
       USERNAME_GITHUB: ${{ secrets.USERNAME_GITHUB }}
-      GITHUB_TOKEN: ${{ secrets.PERSONAL_GIT_TOKEN }}
+      PERSONAL_GIT_TOKEN: ${{ secrets.PERSONAL_GIT_TOKEN }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -30,10 +30,9 @@ jobs:
         run: |
           git config user.email $EMAIL_GITHUB
           git config user.name $USERNAME_GITHUB
+          git remote set-url origin https://$USERNAME_GITHUB:$PERSONAL_GIT_TOKEN@github.com/$username/cat8rat.git
 
       - name: Release
         run: |
           chmod +x mvnw
-          # ./mvnw --batch-mode release:prepare
-          git tag -a $(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout) -m "test tag to delete"
-          git push https://github.com/woodgoblin/cat8rat.git refs/tags/$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+          ./mvnw --batch-mode release:prepare
