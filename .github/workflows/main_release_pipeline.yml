@@ -15,6 +15,11 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    env:
+      EMAIL_GITHUB: ${{ secrets.EMAIL_GITHUB }}
+      USERNAME_GITHUB: ${{ secrets.USERNAME_GITHUB }}
+      CLI_GITHUB_TOKEN: ${{ secrets.CLI_GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.CLI_GITHUB_TOKEN }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -24,12 +29,10 @@ jobs:
 
       - name: Configure Git user
         run: |
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
+          git config user.email $EMAIL_GITHUB
+          git config user.name $USERNAME_GITHUB
 
       - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x mvnw
           ./mvnw --batch-mode release:prepare
