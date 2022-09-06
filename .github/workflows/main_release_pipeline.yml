@@ -23,7 +23,22 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Configure Git user
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+  #    - name: Generate settings.xml for Maven Builds
+ #       env:
+ #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ #       uses: whelk-io/maven-settings-xml-action@v20
+#        with:
+ #         servers: [{ \"id\": \"github\", \"username\": \"\", \"password\": \"$GITHUB_TOKEN\" }]
+
+
       - name: Prepare the release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x mvnw
           ./mvnw --batch-mode release:prepare
@@ -33,6 +48,8 @@ jobs:
         run: ./mvnw clean package -Pnative
         
       - name: Docker Login
+        env:
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN_OLEKSIMYRONCHENKO }}
         # You may pin to the exact commit or the version.
         # uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b
         uses: docker/login-action@v2.0.0
@@ -42,7 +59,7 @@ jobs:
           # Username used to log against the Docker registry
           username: oleksiimyronchenko # optional
           # Password or personal access token used to log against the Docker registry
-          password: dckr_pat_byx1I7ZfM8i3KLDNy3k_8ag_MV0 # optional
+          password: $DOCKERHUB_TOKEN # optional
           # Specifies whether the given registry is ECR (auto, true or false)
           ecr: auto # optional, default is auto
           # Log out from the Docker registry at the end of a job

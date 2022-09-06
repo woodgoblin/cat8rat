@@ -1,0 +1,3 @@
+Sort out the security situation and use of the secrets in Docker/Github.
+
+Github build is failing because the release job fails.

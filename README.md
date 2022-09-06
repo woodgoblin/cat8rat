@@ -1,3 +1,5 @@
+[![Release](https://github.com/woodgoblin/cat8rat/actions/workflows/main_release_pipeline.yml/badge.svg?branch=main)](https://github.com/woodgoblin/cat8rat/actions/workflows/main_release_pipeline.yml)
+
 # cat8rat Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
