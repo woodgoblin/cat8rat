@@ -35,3 +35,4 @@ jobs:
         run: |
           chmod +x mvnw
           ./mvnw --batch-mode release:prepare
+          git tag -a $(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout) -m "test tag to delete"
