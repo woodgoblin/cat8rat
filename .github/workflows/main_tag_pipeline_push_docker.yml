@@ -10,8 +10,7 @@ on:
   create:
     tags:
       - '*'
-
-  workflow_dispatch:
+  workflow-dispatch:
 
 jobs:
   build: #should run only on created tags, i.e. maven release
