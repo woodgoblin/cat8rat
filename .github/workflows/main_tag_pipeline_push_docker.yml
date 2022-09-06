@@ -5,6 +5,8 @@ name: Native docker image release
 # Controls when the workflow will run
 on:
   create:
+  workflow_dispatch:
+  push:
 
 jobs:
   build: #should run only on created tags, i.e. maven release
