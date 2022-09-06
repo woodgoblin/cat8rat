@@ -30,7 +30,7 @@ jobs:
         run: |
           git config user.email $EMAIL_GITHUB
           git config user.name $USERNAME_GITHUB
-          git remote set-url origin https://$USERNAME_GITHUB:$PERSONAL_GIT_TOKEN@github.com/$username/cat8rat.git
+          git remote set-url origin https://$USERNAME_GITHUB:$PERSONAL_GIT_TOKEN@github.com/$USERNAME_GITHUB/cat8rat.git
 
       - name: Release
         run: |
