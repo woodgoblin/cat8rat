@@ -5,6 +5,9 @@ name: Native docker image release
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push for any tag
+  create:
+    tags:
+      - '*'
   push:
     tags:
       - '*'
@@ -25,7 +28,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Native Clean package
-        run: ./mvnw clean package -Pnative
+        run: |
+          chmod +x mvnw
+          ./mvnw clean package -Pnative
 
       - name: Docker Login
         # You may pin to the exact commit or the version.
