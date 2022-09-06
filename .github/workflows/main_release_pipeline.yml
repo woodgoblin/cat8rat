@@ -36,4 +36,4 @@ jobs:
           chmod +x mvnw
           # ./mvnw --batch-mode release:prepare
           git tag -a $(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout) -m "test tag to delete"
-          git push refs/tags/$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+          git push https://github.com/woodgoblin/cat8rat.git refs/tags/$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
