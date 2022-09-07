@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    if: !startsWith(github.event.head_commit.message, '[no-release]')
+    if: "!startsWith(github.event.head_commit.message, 'WIP')"
     env:
       EMAIL_GITHUB: ${{ secrets.EMAIL_GITHUB }}
       USERNAME_GITHUB: ${{ secrets.USERNAME_GITHUB }}
