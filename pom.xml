@@ -112,7 +112,8 @@
         <configuration>
           <checkModificationExcludes>
             <checkModificationExclude>mvnw</checkModificationExclude>
-            <scmReleaseCommitComment>[no ci] @{prefix} my comment @{releaseLabel}</scmReleaseCommitComment>
+            <scmReleaseCommitComment>[no ci] @{prefix} prepare release @{releaseLabel}</scmReleaseCommitComment>
+            <scmDevelopmentCommitComment>[no ci] @{prefix} prepare for next development iteration</scmDevelopmentCommitComment>
           </checkModificationExcludes>
         </configuration>
       </plugin>
