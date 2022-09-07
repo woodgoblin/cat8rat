@@ -110,7 +110,7 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>3.0.0-M6</version>
         <configuration>
-          <scmReleaseCommitComment>[no ci] @{prefix} prepare release @{releaseLabel}</scmReleaseCommitComment>
+          <scmReleaseCommitComment>[no-release] @{prefix} prepare release @{releaseLabel}</scmReleaseCommitComment>
           <scmDevelopmentCommitComment>[no ci] @{prefix} prepare for next development iteration</scmDevelopmentCommitComment>
           <checkModificationExcludes>
             <checkModificationExclude>mvnw</checkModificationExclude>
