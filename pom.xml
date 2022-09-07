@@ -16,7 +16,7 @@
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
   </properties>
   <scm>
-    <connection>scm:git:https://github.com/woodgoblin/cat8rat.git</connection>
+    <connection>scm:git:ssh://git@github.com/woodgoblin/cat8rat.git</connection>
     <tag>HEAD</tag>
   </scm>
   <dependencyManagement>
