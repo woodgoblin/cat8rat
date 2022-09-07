@@ -25,15 +25,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Setup SSH key
+      - name: Install SSH Key
         # You may pin to the exact commit or the version.
-        # uses: volodymyr-borodin/setup-ssh-key@bfebb889f1ee5a23582bca8af1c8b6ccfd9498e7
-        uses: volodymyr-borodin/setup-ssh-key@v1
+        # uses: shimataro/ssh-key-action@3c9b0fc6f2d223b8450b02a0445f526350fc73e0
+        uses: shimataro/ssh-key-action@v2.3.1
         with:
-          # Private key required to access the host
-          private-key: ${{ secrets.ED_GITHUB_PK }}
-          # Hostname or IP to add to the known hosts file
-          known-hosts: ${{ secrets.ED_KNOWN_HOSTS }}
+          # SSH private key
+          key: ${{ secrets.ED_GITHUB_PK }}
+          # public keys of SSH servers
+          known_hosts: ${{ secrets.ED_KNOWN_HOSTS }}
 
       - name: Configure Git user
         run: |
