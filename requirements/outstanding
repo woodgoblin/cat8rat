@@ -1,5 +1,1 @@
-Fix the environment names and secrets.
-
-The environment for release should have a full set of creds needed for the release.
-
-GET THE DOCKER RELEASE WORKING ON THE CREATE TAG TRIGGER
+Untangle the release-push-release line...
