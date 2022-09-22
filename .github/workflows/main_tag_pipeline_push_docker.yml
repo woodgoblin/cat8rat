@@ -25,10 +25,16 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Docker build
-        run: docker build -f ./src/main/docker/Dockerfile.native-micro . -t oleksiimyronchenko/cat8rat:$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+        run: docker build -f ./src/main/docker/Dockerfile.native-micro . -t oleksiimyronchenko/cat8rat-cat-service:latest
+
+      - name: Docker tag
+        run: docker tag oleksiimyronchenko/cat8rat-cat-service:latest  oleksiimyronchenko/cat8rat-cat-service:$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
 
       - name: Docker push version
-        run: docker push oleksiimyronchenko/cat8rat:$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+        run: |
+          docker push oleksiimyronchenko/cat8rat-cat-service:latest
+          docker push oleksiimyronchenko/cat8rat-cat-service:$(./mvnw org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+
 
 
 
