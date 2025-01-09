@@ -1,1 +1,2 @@
-push the latest as well...
+Need to create an overarching project that
+1. Will hold the k8s definitions, based on the images we build into dockerDatabase mapping
