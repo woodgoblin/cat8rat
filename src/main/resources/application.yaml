@@ -1,0 +1,8 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+    username: postgres
+    password: postgres
+    jdbc:
+      url: "jdbc:postgresql://localhost:5433/postgres"
+      max-size: 16
